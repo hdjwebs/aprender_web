@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Login Futurista</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="/static/master.css">
+</head>
+<body>
+    <div class="bg-anim">
+        <div class="circle circle1"></div>
+        <div class="circle circle2"></div>
+        <div class="circle circle3"></div>
+    </div>
+    <div class="glass-container">
+        <div class="neon">FUTURE LOGIN</div>
+        <div class="toggle-btns">
+            <button class="toggle-btn active" id="loginTab" onclick="showForm('login')">Login</button>
+            <button class="toggle-btn" id="registerTab" onclick="showForm('register')">Cadastro</button>
+        </div>
+        <form id="loginForm" class="form active" autocomplete="off" method="post" action="/login">
+            <div class="form-group">
+                <label for="loginEmail">Email</label>
+                <i class="fa fa-envelope input-icon"></i>
+                <input type="text" id="loginEmail" placeholder="Digite seu email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="loginPassword">Senha</label>
+                <i class="fa fa-lock input-icon"></i>
+                <input type="password" id="loginPassword" placeholder="Digite sua senha" name="senha" required>
+            </div>
+            <button type="submit" class="submit-btn">Entrar</button>
+        </form>
+        <form id="registerForm" class="form" autocomplete="off">
+            <div class="form-group">
+                <label for="registerName">Nome</label>
+                <i class="fa fa-user input-icon"></i>
+                <input type="text" id="registerName" placeholder="Seu nome completo" required>
+            </div>
+            <div class="form-group">
+                <label for="registerEmail">Email</label>
+                <i class="fa fa-envelope input-icon"></i>
+                <input type="email" id="registerEmail" placeholder="Digite seu email" required>
+            </div>
+            <div class="form-group">
+                <label for="registerPassword">Senha</label>
+                <i class="fa fa-lock input-icon"></i>
+                <input type="password" id="registerPassword" placeholder="Crie uma senha" required>
+            </div>
+            <button type="submit" class="submit-btn">Cadastrar</button>
+        </form>
+    </div>
+    <script>
+        function showForm(form) {
+            document.getElementById('loginForm').classList.remove('active');
+            document.getElementById('registerForm').classList.remove('active');
+            document.getElementById('loginTab').classList.remove('active');
+            document.getElementById('registerTab').classList.remove('active');
+            if (form === 'login') {
+                document.getElementById('loginForm').classList.add('active');
+                document.getElementById('loginTab').classList.add('active');
+            } else {
+                document.getElementById('registerForm').classList.add('active');
+                document.getElementById('registerTab').classList.add('active');
+            }
+        }
+    </script>
+</body>
+</html>
